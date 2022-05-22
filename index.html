@@ -8,6 +8,8 @@
   <body>
     <script type="text/javascript">
       window.onload = function(){
+        var now = new Date();
+        document.getElementById("now").innerText = (now.getMonth() + 1) + "/" + (now.getDate());
         $.get("https://ipinfo.io", function(ipRes) {
           console.log(ipRes.hostname);
           setTimeout( function(){
