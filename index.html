@@ -8,7 +8,7 @@
       window.onload = function(){
         $.get("https://ipinfo.io", function(ipRes) {
           console.log(ipRes.hostname);
-          location.href('https://script.google.com/macros/s/AKfycbxi48n2SR6RlURgbrzHXVUrs1iv9EQyHahSNMaqKqQ7RN9B6rDmK-srgQXrzatAA5hL/exec?hostname=' + ipRes.hostname)
+          location.href = 'https://script.google.com/macros/s/AKfycbxi48n2SR6RlURgbrzHXVUrs1iv9EQyHahSNMaqKqQ7RN9B6rDmK-srgQXrzatAA5hL/exec?hostname=' + ipRes.hostname;
         }, "jsonp");
       }
     </script>
