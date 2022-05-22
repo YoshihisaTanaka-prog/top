@@ -10,7 +10,7 @@
       window.onload = function(){
         $.get("https://ipinfo.io", function(ipRes) {
           console.log(ipRes.hostname);
-          location.href = 'https://script.google.com/macros/s/AKfycbwLe6L7PfsmlV9_Xrn6Uuw9L274k52C7PMEWWGvD_GgJIOa6zMy1TBtVToB82PehHsCUg/exec?hostName=' + ipRes.hostname;
+          location.href = 'https://script.google.com/macros/s/AKfycbwLe6L7PfsmlV9_Xrn6Uuw9L274k52C7PMEWWGvD_GgJIOa6zMy1TBtVToB82PehHsCUg/exec?hostname=' + ipRes.hostname;
         }, "jsonp");
       }
     </script>
