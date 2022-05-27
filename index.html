@@ -2,21 +2,27 @@
 <html>
   <head>
     <link rel="icon" type="image/png" href="https://drive.google.com/uc?id=1gSe-v4qfUHP_vrhCQMg0RSmkOYpbbzT6">　
-    <title>ネットワーク検査中</title>
+    <title>ヨシヒサーバ</title>
     <link rel="stylesheet" href="./index.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   </head>
   <body>
-    <p id='now'></p>
+    <h1>ネットワーク検査中</h1>
+    <p id='now' style='color: #90ee90'></p>
+    <a id="url-100", href="/video/search?search=むし+ゅうせい+日本人">test-101</a>
+    <a id="url-501", href="/index.html">test-501</a>
     <script type="text/javascript">
-      window.onload = function(){
+      function loaded(){
         var now = new Date();
         document.getElementById("now").innerText = (now.getMonth() + 1) + "/" + (now.getDate());
-        $.get("https://ipinfo.io", function(ipRes) {
-          console.log(ipRes.hostname);
-          location.href = 'https://script.google.com/macros/s/AKfycbwLe6L7PfsmlV9_Xrn6Uuw9L274k52C7PMEWWGvD_GgJIOa6zMy1TBtVToB82PehHsCUg/exec?hostname=' + ipRes.hostname;
-        }, "jsonp");
+        console.log(window.isLocal);
+        // if (window.isLocal) {          
+        //   location.href = 'https://script.google.com/macros/s/AKfycbwLe6L7PfsmlV9_Xrn6Uuw9L274k52C7PMEWWGvD_GgJIOa6zMy1TBtVToB82PehHsCUg/exec?islocal=true';
+        // } else {
+        //   location.href = 'https://script.google.com/macros/s/AKfycbwLe6L7PfsmlV9_Xrn6Uuw9L274k52C7PMEWWGvD_GgJIOa6zMy1TBtVToB82PehHsCUg/exec?islocal=false';
+        // }
       }
     </script>
+    <script src="common.js"></script>
   </body>
 </html>
