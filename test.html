@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="icon" type="image/png" href="https://drive.google.com/uc?id=1gSe-v4qfUHP_vrhCQMg0RSmkOYpbbzT6">　
+    <title>ヨシヒサーバ</title>
+    <link rel="stylesheet" href="./index.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <h1>テスト用ページ</h1>
+    <form id="form">
+        <p>
+            Action<br>
+            <select id="action">
+                <option value="deploy">Deploy</option>
+                <option value="test">Test</option>
+            </select>
+        </p>
+        <p>
+            Sheet<br>
+            <select id="sheet">
+                <option value="Top">Top</option>
+                <option value="Test">Test</option>
+                <option value="Medicine">Medicine</option>
+            </select>
+        </p>
+        <p>
+            Mode<br>
+            <select id="mode">
+                <option value="r">読み取り</option>
+                <option value="w">編集</option>
+            </select>
+        </p>
+        <p>
+            Where<br>
+            <input type="text" id="where">
+        </p>
+        <button type="button" id="btn">送信</button>
+    </form>
+    <script type="text/javascript">
+        $('#btn').click(function(){
+            var url = '';
+            switch ($('#action').val()) {
+                case 'deploy':
+                    url = 'https://script.google.com/macros/s/AKfycbyA0gGkw67AJm8DxktH4zDeGWkDjLHftHWUMjn4LIDFls2KvejrGDw0Kf7GI9LpiBNyfw/exec';
+                    break;
+                case 'test':
+                    url = 'https://script.google.com/macros/s/AKfycbwkhL2UlMHRw1it4Nf3kcTejN7Vu7H8R7MW6JlhA1gk/dev';
+                    break;
+                default:
+                    console.error('No action!');
+                    break;
+            }
+            obj = {
+                sheetname: $('#sheet').val(),
+                mode: $('#mode').val(),
+                where: $('#where').val()
+            };
+            $.post(url, obj, function(data){
+                console.log(data);
+            },'json')
+        })
+        $('#form').submit(function(){
+            return false;
+        });
+    </script>
+  </body>
+</html>
