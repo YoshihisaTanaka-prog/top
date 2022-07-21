@@ -1,6 +1,14 @@
 window.onload = function(){
     window.isLocal = false;
     console.log('test');
+    $.get(serverUrl + "channels.json",function(data){
+        console.log(data);
+    });
+    $.ajax('http://192.168.3.168', {dataType: 'html'}).done(function(data){
+        console.log(data);
+    }).fail(function(){
+        console.error('test failed');
+    });
     $.post('https://script.google.com/macros/s/AKfycbyA0gGkw67AJm8DxktH4zDeGWkDjLHftHWUMjn4LIDFls2KvejrGDw0Kf7GI9LpiBNyfw/exec',
         {'sheetname': 'top', 'mode': 'r'},
         function(data){
@@ -9,17 +17,6 @@ window.onload = function(){
             for(var i = 0; i < data.length; i++){
                 var id = '#url-' + String(data[i].vmId);
                 console.log(id);
-                if (data[i].vmId == 104){
-                    // ネットワークテスト用
-                    $.get(data[i].url, function(data, status, xhr){
-                        console.log(xhr.status)
-                        if(xhr.status == 200){
-                            isLocal = true;
-                        } else{
-                            isLocal = false;
-                        }
-                    });
-                }
                 if ($(id).length) {
                     // リンク先の上書き
                     $(id).each(function() {
