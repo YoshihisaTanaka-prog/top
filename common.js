@@ -1,8 +1,9 @@
 window.onload = function(){
     window.isLocal = false;
     console.log('test');
-    $.get(serverUrl + "channels.json",function(data){
-        console.log(data);
+    $.get("https://yoshihiserver-playlist.herokuapp.com/channels.json",function(data){
+
+        console.log("https://yoshihiserver-playlist.herokuapp.com/channels.json", data);
     });
     $.ajax('http://192.168.3.168', {dataType: 'html'}).done(function(data){
         console.log(data);
